@@ -1,6 +1,7 @@
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 
+# Initialiser le modèle et le prompt
 template = """
 Answer the question below.
 
@@ -15,18 +16,7 @@ model = OllamaLLM(model="llama3")
 prompt = ChatPromptTemplate.from_template(template)
 chain = prompt | model
 
-def handle_conversation():
-    print("Running Nvemo...")
-    context = ""
-    print("Welcome to the AI Chatbot, Type 'exit' to quit")
-    while True:
-        user_input = input("You: ")
-        if user_input.lower() == 'exit':
-            break
-
-        result = chain.invoke({"context": context, "question": user_input})
-        print("Bot: ", result)
-        context += f"\nUser: {user_input}\nAI: {result}"
-
-if __name__ == "__main__":
-    handle_conversation()
+def process_question(context: str, question: str) -> str:
+    """Traite la question et renvoie la réponse."""
+    result = chain.invoke({"context": context, "question": question})
+    return result
