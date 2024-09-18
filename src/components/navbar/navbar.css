@@ -1,0 +1,23 @@
+.nvemo__navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 2rem 6rem;
+}
+
+.nvemo__navbar-links {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.nvemo__navbar-links_logo {
+    margin-right: 2rem;
+}
+
+.nvemo__navbar-links_logo img {
+    width: 62px;
+    height:16px;
+}
