@@ -23,7 +23,7 @@ def capture_voice():
         print("Parlez maintenant...")
         audio = recognizer.listen(source)
         try:
-            text = recognizer.recognize_google(audio, language="fr-FR")  # Utiliser la reconnaissance en français
+            text = recognizer.recognize_google(audio, language="fr-FR")  
             print(f"Vous avez dit: {text}")
             return text
         except sr.UnknownValueError:
@@ -35,12 +35,17 @@ def speak(text):
     engine.say(text)
     engine.runAndWait()
 
+def test_speak(text):
+    engine = pyttsx3.init()
+    engine.say(text)
+    engine.runAndWait()
+
 def chatbot_conversation():
     context = ""
     while True:
         user_input = capture_voice()
-        if user_input is None or user_input.lower() == "déconnecte-toi" or "déconnecte toi":
-            break
+        # if user_input is None or user_input.lower() == "déconnecte-toi" or "déconnecte toi":
+        #     break
 
         result = chain.invoke({"context": context, "question": user_input})
         print(f"Bot: {result}")
