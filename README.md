@@ -1,4 +1,4 @@
-# Project Title
+# NVEMO AI
 
 This project is the foundation of a software that enables users to summarize PDF easily and fast, generate high quality images from text using Stable-diffusion model and engage conversations with LLAMA3 8gb model.
 
